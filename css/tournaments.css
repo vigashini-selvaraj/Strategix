@@ -2,13 +2,13 @@
    STRATEGIX — TOURNAMENTS PAGE CSS
    ========================================================= */
 
-/* Hero Section */
 .tournament-hero {
     position: relative;
-    padding: 120px 0 80px;
-    min-height: 80vh;
+    padding: 4.5rem 0;
+    min-height: 700px;
     display: flex;
     align-items: center;
+    box-sizing: border-box;
     background: linear-gradient(rgba(11, 18, 32, 0.8), rgba(11, 18, 32, 0.8)), url('../assets/images/tournament.jpg') center/cover no-repeat;
     color: #F5F1E8;
 }
@@ -756,16 +756,51 @@
 }
 
 @media (max-width: 768px) {
-    .tournament-hero { padding: 100px 0 60px; text-align: center; }
+    .tournament-hero { padding: 3.5rem 0; min-height: 480px; text-align: center; }
     .tournament-hero-actions { justify-content: center; flex-wrap: wrap; }
     .filter-group { min-width: 100%; }
     .tournament-card { flex-direction: column; }
     .t-card-date { padding: 1.5rem; flex-direction: row; gap: 1rem; }
     .t-card-meta { flex-direction: column; gap: 0.5rem; }
     
-    .journey-timeline { grid-template-columns: 1fr; gap: 3rem; }
+    .journey-timeline {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        position: relative;
+    }
     .journey-timeline::before {
-        top: 0; bottom: 0; left: 24px; right: auto; width: 1px; height: auto;
+        top: 24px;
+        bottom: 24px;
+        left: 24px;
+        right: auto;
+        width: 1px;
+        height: auto;
+    }
+    html[dir="rtl"] .journey-timeline::before {
+        left: auto;
+        right: 24px;
+    }
+    .journey-step {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1.5rem;
+        position: relative;
+        z-index: 2;
+    }
+    .journey-step .step-num {
+        flex-shrink: 0;
+        margin-bottom: 0;
+    }
+    .journey-info {
+        flex: 1;
+        padding-top: 4px;
+    }
+    .journey-info h3 {
+        margin-bottom: 0.5rem;
+    }
+    .journey-info p {
+        margin-bottom: 0;
     }
     
     .process-flow { flex-direction: column; gap: 2rem; }
@@ -775,4 +810,24 @@
     .past-item .btn { margin-top: 1rem; }
     
     .info-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .journey-step {
+        gap: 1.25rem;
+    }
+    .step-num {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+    }
+    .journey-timeline::before {
+        left: 21px;
+        top: 21px;
+        bottom: 21px;
+    }
+    html[dir="rtl"] .journey-timeline::before {
+        left: auto;
+        right: 21px;
+    }
 }

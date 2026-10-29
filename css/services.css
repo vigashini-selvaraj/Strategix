@@ -6,11 +6,12 @@
 
 .services-hero {
     position: relative;
-    padding: 8rem 0 8rem;
+    padding: 4.5rem 0;
     overflow: hidden;
-    min-height: 70vh;
+    min-height: 700px;
     display: flex;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .services-hero-bg {
@@ -250,6 +251,9 @@
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .pathway-card:hover {
@@ -269,12 +273,17 @@
     letter-spacing: 2px;
     margin-bottom: 1.5rem;
     font-weight: 700;
+    min-height: 2.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .pathway-card p {
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.6;
     margin-bottom: 2rem;
+    flex-grow: 1;
 }
 
 .pathway-link {
@@ -286,7 +295,9 @@
     letter-spacing: 1px;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
+    margin-top: auto;
 }
 
 /* --- HOW OUR SERVICES WORK --- */

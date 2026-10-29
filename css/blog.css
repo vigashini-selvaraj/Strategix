@@ -19,10 +19,12 @@
 /* --- SECTION 1: BLOG HERO --- */
 .blog-hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 4.5rem 0;
+    box-sizing: border-box;
     background-color: var(--brand-primary);
     background:
         linear-gradient(
@@ -57,6 +59,15 @@
 
 .blog-hero-content .section-label {
     color: var(--gold);
+}
+
+.blog-hero .hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
 }
 
 /* --- SECTION 2: FEATURED ARTICLE --- */
@@ -125,6 +136,17 @@
     font-size: 0.9rem;
     color: var(--text-muted);
     font-weight: 500;
+}
+
+.featured-content .article-meta {
+    margin-bottom: 2.25rem;
+}
+
+.featured-content .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.25rem;
 }
 
 /* --- SECTION 3: FILTER & ARTICLE GRID --- */
@@ -451,6 +473,17 @@
     margin-bottom: 2rem;
 }
 
+.best-article-content .article-meta {
+    margin-bottom: 2.25rem;
+}
+
+.best-article-content .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.25rem;
+}
+
 .best-article-image {
     position: relative;
     border-radius: var(--radius-sm);
@@ -560,24 +593,51 @@
 .cta-actions {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
 }
 
-.btn-outline-white {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    color: #ffffff;
-    padding: 12px 28px;
-    border-radius: 4px;
-    text-decoration: none;
+/* Secondary CTA Button in Ready To Put Section */
+.blog-cta .btn-outline-white,
+.blog-cta .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 24px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
     font-weight: 600;
+    text-decoration: none;
     transition: var(--transition);
-    display: inline-block;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
 }
 
-.btn-outline-white:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: #ffffff;
+.blog-cta .btn-outline-white:hover,
+.blog-cta .btn-secondary:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+    background: var(--bg-secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+[data-theme="dark"] .blog-cta .btn-outline-white,
+[data-theme="dark"] .blog-cta .btn-secondary {
+    background: rgba(255, 255, 255, 0.06);
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .blog-cta .btn-outline-white:hover,
+[data-theme="dark"] .blog-cta .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(255, 255, 255, 0.12);
 }
 
 /* --- RESPONSIVE DESIGN --- */

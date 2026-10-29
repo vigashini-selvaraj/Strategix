@@ -34,14 +34,13 @@
     <!-- =====================================================
          HERO
     ====================================================== -->
-    <section class="h2-hero">
+    <section class="h2-hero hero-standard">
         <div class="h2-hero-overlay"></div>
         <div class="container">
             <div class="h2-hero-content">
                 <span class="section-label">THE STRATEGIX MINDSET</span>
                 <h1>
-                    Don't Just Make
-                    <span>A Move.</span>
+                    Don't Just Make <span class="no-break">A Move.</span>
                     <br>
                     <span class="text-gold">Understand It.</span>
                 </h1>
@@ -87,7 +86,7 @@
                     <strong>White to play and win.</strong>
                     <p>Find the strongest continuation.</p>
                 </div>
-                <a href="#" class="move-card-btn">Solve Now <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="javascript:void(0)" onclick="openGameModal('Position of the Day — Solution', 'White plays 1. Nh6+! Kh8 2. Qg8+! Rxg8 3. Nf7# (Smothered Mate). A brilliant demonstration of knight and queen coordination exploiting the trapped black king.', 'assets/images/advanced.png')" class="move-card-btn">Solve Now <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
@@ -417,29 +416,35 @@
                     <div class="journey-dot"></div>
                     <h3>DISCOVER</h3>
                     <p>Learn the fundamentals.</p>
-                    <p class="click-to-read" style="margin-top:1rem;">Click to explore <i class="fa-solid fa-arrow-right"></i></p>
+                    <p class="click-to-read">Click to explore <i class="fa-solid fa-arrow-right"></i></p>
                 </div>
                 <div class="journey-stage interactive-card" onclick="openGameModal('Develop', 'Once the basics are mastered, we move to strategic understanding. This is where you learn to evaluate pawn structures, control key squares, and formulate long-term plans.', 'assets/images/intermediate.png')" style="cursor: pointer; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
                     <span>02</span>
                     <div class="journey-dot"></div>
                     <h3>DEVELOP</h3>
                     <p>Build strategic understanding.</p>
-                    <p class="click-to-read" style="margin-top:1rem;">Click to explore <i class="fa-solid fa-arrow-right"></i></p>
+                    <p class="click-to-read">Click to explore <i class="fa-solid fa-arrow-right"></i></p>
                 </div>
                 <div class="journey-stage interactive-card" onclick="openGameModal('Compete', 'With a solid strategy in place, you begin testing your skills under tournament conditions. We focus on time management, psychological resilience, and practical decision-making.', 'assets/images/competition.png')" style="cursor: pointer; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
                     <span>03</span>
                     <div class="journey-dot"></div>
                     <h3>COMPETE</h3>
                     <p>Apply your skills under pressure.</p>
-                    <p class="click-to-read" style="margin-top:1rem;">Click to explore <i class="fa-solid fa-arrow-right"></i></p>
+                    <p class="click-to-read">Click to explore <i class="fa-solid fa-arrow-right"></i></p>
                 </div>
                 <div class="journey-stage interactive-card" onclick="openGameModal('Master', 'The final stage is true mastery. You no longer rely solely on the coach; you develop the independent judgement required to navigate unseen, complex positions against strong masters.', 'assets/images/advanced.png')" style="cursor: pointer; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
                     <span>04</span>
                     <div class="journey-dot"></div>
                     <h3>MASTER</h3>
                     <p>Develop independent decision-making.</p>
-                    <p class="click-to-read" style="margin-top:1rem;">Click to explore <i class="fa-solid fa-arrow-right"></i></p>
+                    <p class="click-to-read">Click to explore <i class="fa-solid fa-arrow-right"></i></p>
                 </div>
+            </div>
+            <div class="journey-cta">
+                <a href="programs.html" class="btn btn-primary">
+                    Start Your Journey
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>

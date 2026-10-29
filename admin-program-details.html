@@ -20,9 +20,10 @@
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <div class="logo">
+                <a href="index.html" class="logo">
                     <img src="assets/strategix logo.png" alt="Strategix" class="brand-logo">
-                </div>
+                    <span class="logo-text">STRATEGIX</span>
+                </a>
                 <button id="close-sidebar-btn" class="close-sidebar-btn d-lg-none"><i class='bx bx-x'></i></button>
             </div>
             
@@ -55,11 +56,10 @@
                         <span class="admin-role">Super Admin</span>
                     </div>
                 </div>
-                <div class="sidebar-actions">
-                    <button id="theme-toggle" class="action-btn" title="Toggle Theme"><i class='bx bx-moon'></i></button>
-                    <button id="direction-toggle" class="action-btn" title="Toggle RTL/LTR"><i class='bx bx-right-indent'></i></button>
-                    <a href="login.html" class="action-btn text-danger" title="Logout"><i class='bx bx-log-out'></i></a>
-                </div>
+                <a href="login.html" class="sidebar-logout-link" title="Logout">
+                    <i class='bx bx-log-out'></i>
+                    <span>Logout</span>
+                </a>
             </div>
         </aside>
 
@@ -81,6 +81,12 @@
                         <i class='bx bx-search'></i>
                         <input type="text" placeholder="Search...">
                     </div>
+                    <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
+                        <i class='bx bx-moon'></i>
+                    </button>
+                    <button id="direction-toggle" class="icon-btn" title="Toggle RTL/LTR">
+                        <i class='bx bx-right-indent'></i>
+                    </button>
                     <div class="header-profile" id="profileDropdownBtn">
                         <img src="https://i.pravatar.cc/150?img=11" alt="Admin" class="avatar">
                         <span class="admin-name d-none d-md-block">Admin User <i class='bx bx-chevron-down'></i></span>

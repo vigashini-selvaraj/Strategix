@@ -5,16 +5,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentTheme = localStorage.getItem('academy-theme') || 'light-mode';
     body.className = currentTheme;
 
-    themeToggle.addEventListener('click', () => {
-        if (body.classList.contains('light-mode')) {
-            body.classList.replace('light-mode', 'dark-mode');
-            localStorage.setItem('academy-theme', 'dark-mode');
+    function updateThemeIcon() {
+        if (!themeToggle) return;
+        const icon = themeToggle.querySelector('i');
+        if (!icon) return;
+        if (body.classList.contains('dark-mode')) {
+            icon.className = 'bx bx-sun';
+            themeToggle.setAttribute('title', 'Switch to Light Mode');
         } else {
-            body.classList.replace('dark-mode', 'light-mode');
-            localStorage.setItem('academy-theme', 'light-mode');
+            icon.className = 'bx bx-moon';
+            themeToggle.setAttribute('title', 'Switch to Dark Mode');
         }
-        updateChartsTheme();
-    });
+    }
+    updateThemeIcon();
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('light-mode')) {
+                body.classList.replace('light-mode', 'dark-mode');
+                localStorage.setItem('academy-theme', 'dark-mode');
+            } else {
+                body.classList.replace('dark-mode', 'light-mode');
+                localStorage.setItem('academy-theme', 'light-mode');
+            }
+            updateThemeIcon();
+            updateChartsTheme();
+        });
+    }
 
     // Direction Logic (RTL/LTR)
     const directionToggle = document.getElementById('direction-toggle');
@@ -22,41 +39,49 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentDir = localStorage.getItem('academy-direction') || 'ltr';
     html.setAttribute('dir', currentDir);
 
-    directionToggle.addEventListener('click', () => {
-        const newDir = html.getAttribute('dir') === 'ltr' ? 'rtl' : 'ltr';
-        html.setAttribute('dir', newDir);
-        localStorage.setItem('academy-direction', newDir);
-    });
+    if (directionToggle) {
+        directionToggle.addEventListener('click', () => {
+            const newDir = html.getAttribute('dir') === 'ltr' ? 'rtl' : 'ltr';
+            html.setAttribute('dir', newDir);
+            localStorage.setItem('academy-direction', newDir);
+        });
+    }
 
     // Sidebar Toggle
     const sidebarToggle = document.getElementById('sidebar-toggle');
     const sidebar = document.getElementById('sidebar');
-    const closeSidebarBtn = document.getElementById('close-sidebar-btn');
+    const closeSidebarBtn = document.getElementById('close-sidebar') || document.getElementById('close-sidebar-btn');
 
-    sidebarToggle.addEventListener('click', () => {
-        if (window.innerWidth < 992) {
-            sidebar.classList.add('open');
-        } else {
-            sidebar.classList.toggle('collapsed');
-        }
-    });
+    if (sidebarToggle && sidebar) {
+        sidebarToggle.addEventListener('click', () => {
+            if (window.innerWidth < 992) {
+                sidebar.classList.add('open');
+            } else {
+                sidebar.classList.toggle('collapsed');
+            }
+        });
+    }
 
-    closeSidebarBtn.addEventListener('click', () => {
-        sidebar.classList.remove('open');
-    });
+    if (closeSidebarBtn && sidebar) {
+        closeSidebarBtn.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+        });
+    }
 
     // Profile Dropdown
     const profileBtn = document.getElementById('profileDropdownBtn');
     const profileDropdown = document.getElementById('profileDropdown');
 
-    profileBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        profileDropdown.classList.toggle('show');
-    });
+    if (profileBtn && profileDropdown) {
+        profileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('show');
+        });
 
-    document.addEventListener('click', () => {
-        profileDropdown.classList.remove('show');
-    });
+        document.addEventListener('click', () => {
+            profileDropdown.classList.remove('show');
+        });
+    }
 
     // Modal logic
     const addStudentModal = document.getElementById('add-student-modal');

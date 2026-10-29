@@ -86,8 +86,9 @@
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <a href="user-dashboard.html" class="logo">
-                    <img src="assets/strategix%20logo.png" alt="Strategy Chess Academy" class="brand-logo">
+                <a href="index.html" class="logo">
+                    <img src="assets/strategix logo.png" alt="Strategix" class="brand-logo">
+                    <span class="logo-text">STRATEGIX</span>
                 </a>
                 <button class="close-sidebar-btn" id="close-sidebar"><i class='bx bx-x'></i></button>
             </div>
@@ -145,12 +146,10 @@
             </div>
 
             <div class="sidebar-footer">
-                <div class="sidebar-actions">
-                    <button id="theme-toggle" class="action-btn" title="Toggle Theme"><i class='bx bx-moon'></i></button>
-                    <button id="direction-toggle" class="action-btn" title="Toggle RTL/LTR"><i class='bx bx-right-indent'></i></button>
-                    <a href="#" class="action-btn" title="Help & Support"><i class='bx bx-help-circle'></i></a>
-                    <a href="login.html" class="action-btn text-danger" title="Logout"><i class='bx bx-log-out'></i></a>
-                </div>
+                <a href="login.html" class="sidebar-logout-link" title="Logout">
+                    <i class='bx bx-log-out'></i>
+                    <span>Logout</span>
+                </a>
             </div>
         </aside>
 
@@ -166,6 +165,12 @@
                 </div>
                 
                 <div class="header-right">
+                    <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
+                        <i class='bx bx-moon'></i>
+                    </button>
+                    <button id="direction-toggle" class="icon-btn" title="Toggle RTL/LTR">
+                        <i class='bx bx-right-indent'></i>
+                    </button>
                     <div class="header-profile" id="profileDropdownBtn">
                         <img src="https://i.pravatar.cc/150?img=11" alt="Student" class="avatar">
                         <span class="admin-name d-none d-md-block">Arjun R. <i class='bx bx-chevron-down'></i></span>
@@ -284,12 +289,29 @@
                     </div>
 
                     <!-- Monthly Chart -->
-                    <div class="data-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Monthly Attendance</h3>
+                    <div class="data-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div class="card-header">
+                                <h3 class="card-title">Monthly Attendance</h3>
+                                <span class="badge bg-success-light" style="color: var(--success); font-weight: 600;">94% Current</span>
+                            </div>
+                            <div class="card-body" style="height: 250px; position: relative;">
+                                <canvas id="attendanceChart"></canvas>
+                            </div>
                         </div>
-                        <div class="card-body" style="height: 300px; position: relative;">
-                            <canvas id="attendanceChart"></canvas>
+                        <div class="attendance-summary-metrics" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; padding: 12px 14px; background: var(--bg-color); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                            <div style="text-align: center;">
+                                <span style="font-size: 0.75rem; color: var(--text-muted); display: block; text-transform: uppercase;">Average</span>
+                                <strong style="font-size: 1.05rem; color: var(--success);">90.7%</strong>
+                            </div>
+                            <div style="text-align: center;">
+                                <span style="font-size: 0.75rem; color: var(--text-muted); display: block; text-transform: uppercase;">Peak</span>
+                                <strong style="font-size: 1.05rem; color: var(--primary);">95% (Aug)</strong>
+                            </div>
+                            <div style="text-align: center;">
+                                <span style="font-size: 0.75rem; color: var(--text-muted); display: block; text-transform: uppercase;">Classes</span>
+                                <strong style="font-size: 1.05rem; color: var(--text-main);">48/52</strong>
+                            </div>
                         </div>
                     </div>
 

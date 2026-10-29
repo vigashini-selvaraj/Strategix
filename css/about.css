@@ -5,7 +5,12 @@
 /* --- GENERAL & HERO --- */
 
 .about-hero {
-    padding: 8rem 0 6rem;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 4.5rem 0;
+    box-sizing: border-box;
     background: var(--bg-primary);
 }
 

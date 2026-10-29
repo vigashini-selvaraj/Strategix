@@ -6,20 +6,24 @@
 /* ================= HERO ================= */
 
 .hero {
-    min-height: 720px;
+    min-height: 700px;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
+    padding: 4.5rem 0;
+    box-sizing: border-box;
 }
 
 .hero-container {
-    width: 100%;
+    width: min(100% - 64px, var(--container-width));
+    max-width: var(--container-width);
+    margin-inline: auto;
 }
 
 .hero-content {
     color: #ffffff;
-    padding-inline-start: 6rem;
+    padding-inline-start: 0;
 }
 
 .hero-title {
@@ -469,18 +473,21 @@
     font-family: var(--font-heading);
     font-size: 1.65rem;
     margin-bottom: 0.75rem;
+    min-height: 4rem;
 }
 
 .program-card p {
     color: var(--text-secondary);
     line-height: 1.7;
     font-size: 0.92rem;
+    flex-grow: 1;
 }
 
 .program-meta {
     display: flex;
     gap: 1.5rem;
-    margin: 1.7rem 0;
+    margin-top: auto;
+    margin-bottom: 1.5rem;
     padding-top: 1rem;
     border-top: 1px solid var(--border);
 }
@@ -1008,6 +1015,9 @@
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .testimonial-card:hover {
@@ -1027,14 +1037,15 @@
     font-size: 1.3rem;
     line-height: 1.7;
     color: var(--text-primary);
+    flex-grow: 1;
 }
 
 .testimonial-person {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-top: 2rem;
-    padding-top: 1.2rem;
+    margin-top: auto;
+    padding-top: 1.5rem;
     border-top: 1px solid var(--border);
 }
 
@@ -1083,6 +1094,9 @@
     background: var(--bg-card);
     border: 1px solid var(--border);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .blog-card:hover {
@@ -1109,6 +1123,9 @@
 
 .blog-content {
     padding: 1.7rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .blog-content > span {
@@ -1123,12 +1140,15 @@
     font-size: 1.35rem;
     line-height: 1.35;
     margin: 0.7rem 0;
+    min-height: 3.6rem;
 }
 
 .blog-content p {
     color: var(--text-secondary);
     font-size: 0.82rem;
     line-height: 1.7;
+    margin-bottom: 1.2rem;
+    flex-grow: 1;
 }
 
 .blog-content a {
@@ -1138,7 +1158,8 @@
     color: var(--gold);
     font-size: 0.78rem;
     font-weight: 600;
-    margin-top: 1.2rem;
+    margin-top: auto;
+    padding-top: 1rem;
 }
 
 
@@ -1318,8 +1339,9 @@
 @media (max-width: 600px) {
 
     .hero {
-        min-height: 620px;
+        min-height: 480px;
         background-position: 65% center !important;
+        padding: 3.5rem 0;
     }
 
     .hero-content {

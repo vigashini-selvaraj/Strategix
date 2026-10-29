@@ -9,11 +9,14 @@
    ========================================================= */
 
 .h2-hero {
-    min-height: 700px;
+    min-height: calc(100vh - var(--navbar-height));
+    min-height: max(720px, calc(100vh - var(--navbar-height)));
     position: relative;
     display: flex;
     align-items: center;
     overflow: hidden;
+    padding: 4.5rem 0;
+    box-sizing: border-box;
     background:
         linear-gradient(
             90deg,
@@ -31,23 +34,27 @@
 }
 
 .h2-hero .container {
+    width: min(100% - 64px, var(--container-width));
+    max-width: var(--container-width);
+    margin-inline: auto;
     position: relative;
     z-index: 2;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 4rem;
+    gap: clamp(2rem, 4vw, 4.5rem);
 }
 
 .h2-hero-content {
-    max-width: 700px;
+    max-width: 650px;
+    flex: 1;
 }
 
 .h2-hero-content h1 {
     font-family: var(--font-heading);
     color: #ffffff !important;
-    font-size: 4.5rem;
-    line-height: 1.1;
+    font-size: clamp(2.4rem, 4.2vw, 4.2rem);
+    line-height: 1.15;
     font-weight: 500;
     margin-bottom: 1.5rem;
 }
@@ -56,22 +63,28 @@
     color: var(--gold);
 }
 
+.h2-hero-content h1 span.no-break {
+    white-space: nowrap;
+}
+
 .h2-hero-content p {
-    max-width: 570px;
-    color: rgba(255,255,255,0.7) !important;
+    max-width: 540px;
+    color: rgba(255, 255, 255, 0.8) !important;
     line-height: 1.8;
     font-size: 1.1rem;
+    margin-bottom: 2.25rem;
 }
 
 .h2-hero-actions {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    margin-top: 2.5rem;
+    margin-top: 0;
+    flex-wrap: wrap;
 }
 
 .h2-text-button {
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.95);
     font-size: 0.9rem;
     display: inline-flex;
     gap: 0.6rem;
@@ -79,22 +92,38 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;
+    text-decoration: none;
     transition: var(--transition);
+}
+
+.h2-text-button i {
+    color: var(--gold);
+    transition: transform 0.3s ease;
 }
 
 .h2-text-button:hover {
     color: var(--gold);
 }
 
+.h2-text-button:hover i {
+    transform: translateY(3px);
+}
+
 .hero-move-card {
-    width: 280px;
-    min-width: 280px;
-    padding: 1.5rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-lg);
+    width: 320px;
+    min-width: 290px;
+    max-width: 340px;
+    padding: 1.75rem;
+    background: rgba(14, 23, 38, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
     border-radius: var(--radius-sm);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
 }
 
 .move-card-top {
@@ -163,7 +192,7 @@
 }
 
 .move-card-bottom p {
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.75);
     font-size: 0.85rem;
     margin: 0;
 }
@@ -174,14 +203,27 @@
     justify-content: space-between;
     color: var(--gold);
     font-size: 0.85rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    text-decoration: none;
+    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .move-card-btn:hover {
     color: #ffffff;
+    border-top-color: var(--gold);
+}
+
+.move-card-btn i {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.move-card-btn:hover i {
+    transform: translateX(4px);
+    color: var(--gold);
 }
 
 
@@ -235,6 +277,9 @@
     padding: 3rem 2.5rem;
     border-right: 1px solid var(--border);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .thinking-card:last-child {
@@ -287,7 +332,8 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-top: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -440,6 +486,9 @@
     background: var(--bg-card);
     padding: 3.5rem;
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .principle-item:hover {
@@ -470,6 +519,12 @@
     color: var(--text-secondary);
     font-size: 1rem;
     line-height: 1.7;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.principle-item .click-to-read {
+    margin-top: auto;
 }
 
 
@@ -637,6 +692,22 @@
     grid-template-columns: 0.9fr 1.1fr;
     min-height: 500px;
     box-shadow: var(--shadow-lg);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.lab-side {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    min-height: 380px;
+}
+
+.lab-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .lab-content {
@@ -864,13 +935,7 @@
 }
 
 .journey-line::before {
-    content: "";
-    position: absolute;
-    top: 35px;
-    left: 12%;
-    right: 12%;
-    height: 1px;
-    background: var(--border);
+    display: none;
 }
 
 .journey-stage {
@@ -883,11 +948,18 @@
     box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: 100%;
 }
 
 .journey-stage .click-to-read {
-    margin-top: auto;
+    margin-top: auto !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    margin-inline: auto;
 }
 
 .journey-stage>span {
@@ -919,6 +991,28 @@
     font-size: 0.95rem;
     line-height: 1.6;
     margin-top: 0.8rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.journey-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3.5rem;
+    text-align: center;
+    width: 100%;
+}
+
+.journey-cta .btn {
+    margin: 0 auto;
+    background: var(--accent);
+    color: #FFFFFF !important;
+}
+
+.journey-cta .btn:hover {
+    background: var(--accent-hover);
+    color: #FFFFFF !important;
 }
 
 
@@ -1047,6 +1141,39 @@
 }
 
 @media (max-width: 992px) {
+    .h2-hero {
+        min-height: auto;
+        padding: 4.5rem 0;
+    }
+
+    .h2-hero .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 3.5rem;
+    }
+
+    .h2-hero-content {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .h2-hero-actions {
+        justify-content: center;
+    }
+
+    .hero-move-card {
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+
+    .journey-cta {
+        margin-top: 2.5rem;
+        justify-content: center;
+    }
 
     .h2-section-intro,
     .session-header,
@@ -1075,22 +1202,18 @@
     .journey-line::before {
         display: none;
     }
+
+    .mastery-loop {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .loop-step {
+        padding: 2.5rem 1.5rem;
+    }
 }
 
 @media (max-width: 768px) {
-    .h2-hero .container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .h2-hero-actions {
-        justify-content: center;
-    }
-
-    .hero-move-card {
-        display: none;
-    }
-
     .thinking-grid,
     .beyond-grid,
     .principles-grid,
@@ -1102,6 +1225,10 @@
     .beyond-stat {
         border-right: none;
         border-bottom: 1px solid var(--border);
+    }
+
+    .story-timeline::before {
+        display: none;
     }
 
     .story-step {
@@ -1139,6 +1266,54 @@
 
     .lab-content {
         padding: 3rem 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .h2-hero {
+        padding: 3.5rem 0;
+    }
+
+    .h2-hero .container {
+        width: min(100% - 32px, var(--container-width));
+        gap: 2.5rem;
+    }
+
+    .h2-hero-content h1 {
+        font-size: 2.35rem;
+    }
+
+    .h2-hero-content p {
+        font-size: 1rem;
+    }
+
+    .h2-hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .h2-hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .h2-text-button {
+        justify-content: center;
+    }
+
+    .mastery-loop {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .loop-step {
+        padding: 2rem 1.25rem;
+    }
+
+    .hero-move-card {
+        max-width: 100%;
+        padding: 1.25rem;
     }
 }
 
