@@ -9,7 +9,7 @@
 
 /* --- SECTION 1: HERO --- */
 .blog-detail-hero {
-    padding: 10rem 0 0;
+    padding: 6rem 0 0;
     background-color: var(--bg-primary);
 }
 
@@ -721,7 +721,7 @@
 }
 
 @media (max-width: 768px) {
-    .blog-detail-hero { padding: 8rem 0 0; }
+    .blog-detail-hero { padding: 4rem 0 0; }
     .blog-detail-title { font-size: 2.5rem; }
     .blog-detail-subtitle { font-size: 1.1rem; }
     

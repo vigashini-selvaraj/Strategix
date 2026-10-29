@@ -62,12 +62,28 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: p.duration
         };
         document.getElementById('booking-breadcrumb').innerHTML = `Programs / ${p.title} / Booking`;
+    } else if (!serviceId && !programId) {
+        // Fallback to Private Coaching if opened directly without params
+        const s = services['private-coaching'] || Object.values(services)[0];
+        const p = s.plans[planId] || Object.values(s.plans)[0];
+        currentBooking = {
+            type: 'service',
+            title: s.title,
+            planName: p.title,
+            price: p.price,
+            sessions: p.sessions,
+            duration: p.duration
+        };
+        document.getElementById('booking-breadcrumb').innerHTML = `Services / ${s.title} / Booking`;
     } else {
         // Invalid State
         document.getElementById('main-content').style.display = 'block';
         document.getElementById('booking-form-state').style.display = 'none';
         document.getElementById('booking-summary-sticky').style.display = 'none';
-        document.querySelector('.booking-progress-section').style.display = 'none';
+        const progressSec = document.querySelector('.booking-progress-section');
+        if (progressSec) progressSec.style.display = 'none';
+        const layoutGrid = document.querySelector('.layout-grid');
+        if (layoutGrid) layoutGrid.classList.add('error-mode');
         document.getElementById('booking-error-state').style.display = 'block';
         return;
     }

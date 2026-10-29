@@ -6,7 +6,8 @@
 /* ================= HERO ================= */
 
 .hero {
-    min-height: 700px;
+    min-height: calc(100vh - var(--navbar-height));
+    min-height: max(720px, calc(100vh - var(--navbar-height)));
     display: flex;
     align-items: center;
     position: relative;

@@ -10,12 +10,17 @@
 /* --- HERO SECTION --- */
 .tournament-hero {
     position: relative;
-    padding: 9rem 0 5rem;
+    padding: 4.5rem 0;
+    min-height: calc(100vh - var(--navbar-height));
+    min-height: max(720px, calc(100vh - var(--navbar-height)));
+    display: flex;
+    align-items: center;
     background-color: var(--bg-primary);
     background-size: cover;
-    background-position: center;
+    background-position: center 30%;
     background-attachment: fixed;
     color: #ffffff;
+    box-sizing: border-box;
 }
 
 .hero-overlay {
@@ -764,6 +769,10 @@
 }
 
 @media (max-width: 768px) {
+    .tournament-hero {
+        padding: 4rem 0;
+        min-height: auto;
+    }
     .tournament-hero h1 {
         font-size: 2.8rem;
     }

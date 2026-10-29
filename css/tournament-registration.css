@@ -4,10 +4,17 @@
 
 /* --- LAYOUT & CONTAINERS --- */
 .registration-hero {
-    background-color: #0B1220;
+    background:
+        linear-gradient(rgba(11, 18, 32, 0.85), rgba(11, 18, 32, 0.92)),
+        url('../assets/images/tournament.jpg') center 25%/cover no-repeat;
     color: #ffffff;
-    padding: 6rem 0 4rem;
+    padding: 4.5rem 0;
+    min-height: calc(100vh - var(--navbar-height));
+    min-height: max(720px, calc(100vh - var(--navbar-height)));
+    display: flex;
+    align-items: center;
     border-bottom: 4px solid var(--gold);
+    box-sizing: border-box;
 }
 
 .hero-breadcrumb {
@@ -663,6 +670,10 @@ select.form-control {
 }
 
 @media (max-width: 768px) {
+    .registration-hero {
+        padding: 4rem 0;
+        min-height: auto;
+    }
     .registration-hero h1 {
         font-size: 2.2rem;
     }

@@ -4,8 +4,13 @@
 
 /* Hero Section */
 .pd-hero {
-    padding: 140px 0 80px;
+    min-height: calc(100vh - var(--navbar-height));
+    min-height: max(720px, calc(100vh - var(--navbar-height)));
+    display: flex;
+    align-items: center;
+    padding: 4.5rem 0;
     background: var(--bg-primary);
+    box-sizing: border-box;
 }
 
 .pd-hero-container {
@@ -727,6 +732,10 @@
 }
 
 @media (max-width: 768px) {
+    .pd-hero {
+        min-height: auto;
+        padding: 4rem 0;
+    }
     .pd-audience-grid { grid-template-columns: 1fr; }
     .pd-outcomes-grid { grid-template-columns: 1fr; }
     .pd-session-timeline { grid-template-columns: 1fr; gap: 3rem; }

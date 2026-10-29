@@ -4,9 +4,70 @@
    HERO SECTION
 ========================================================= */
 .booking-hero {
-    padding: 8rem 0 4rem;
-    background-color: var(--bg-primary);
+    padding: 4.5rem 0;
+    min-height: calc(100vh - var(--navbar-height));
+    min-height: max(720px, calc(100vh - var(--navbar-height)));
+    display: flex;
+    align-items: center;
+    position: relative;
+    background:
+        linear-gradient(rgba(11, 18, 32, 0.82), rgba(11, 18, 32, 0.9)),
+        url('../assets/images/private-coaching.jpg') center 30%/cover no-repeat;
+    color: #ffffff;
     border-bottom: 1px solid var(--border);
+    box-sizing: border-box;
+}
+
+.booking-hero .breadcrumb,
+.booking-hero .breadcrumb a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.booking-hero .breadcrumb a:hover {
+    color: var(--gold);
+}
+
+.booking-hero .section-label {
+    color: var(--gold);
+    border-color: var(--gold);
+}
+
+.booking-hero .booking-title {
+    color: #ffffff;
+}
+
+.booking-hero .booking-subtitle {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-scroll-down {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gold);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 2.5rem;
+    transition: var(--transition);
+}
+
+.hero-scroll-down:hover {
+    color: #ffffff;
+    transform: translateY(3px);
+}
+
+.hero-scroll-down i {
+    animation: bounceDown 2s infinite;
+}
+
+@keyframes bounceDown {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(6px); }
+    60% { transform: translateY(3px); }
 }
 
 .breadcrumb {
@@ -131,10 +192,36 @@
     align-items: start;
 }
 
-.layout-grid.success-mode {
+.layout-grid.success-mode,
+.layout-grid.error-mode {
     grid-template-columns: 1fr;
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
+    text-align: center;
+}
+
+#booking-error-state,
+#booking-unavailable-state {
+    padding: 3.5rem 2rem;
+    text-align: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+}
+
+.error-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.what-happens-next {
+    width: 100%;
+    margin-top: 4rem;
 }
 
 /* =========================================================
@@ -890,16 +977,16 @@ input:checked + .custom-checkbox::after {
 /* =========================================================
    CTA & HELP SECTIONS
 ========================================================= */
-.booking-help, .booking-cta { padding: 6rem 0; background: var(--brand-primary); } [data-theme="dark"] .booking-help, [data-theme="dark"] .booking-cta { background: var(--bg-elevated); }
+.booking-cta { padding: 6rem 0; background: var(--brand-primary); } [data-theme="dark"] .booking-cta { background: var(--bg-elevated); }
 
-.booking-help h2, .booking-cta h2 {
+.booking-cta h2 {
     color: #ffffff;
     font-family: var(--font-heading);
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
-.booking-help p, .booking-cta p {
+.booking-cta p {
     color: rgba(255, 255, 255, 0.8);
     font-size: 1.1rem;
     margin-bottom: 2rem;
@@ -952,6 +1039,10 @@ input:checked + .custom-checkbox::after {
    RESPONSIVE DESIGN
 ========================================================= */
 @media (max-width: 992px) {
+    .booking-hero {
+        padding: 4rem 0;
+        min-height: auto;
+    }
     .layout-grid {
         grid-template-columns: 1fr;
     }

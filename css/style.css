@@ -294,6 +294,7 @@ p {
    CONSISTENT HERO SECTIONS (SHARED ACROSS ALL PAGES)
    ========================================================= */
 
+/* Hero Sections (Consistent Full-Height matching Home 2 across all pages) */
 .hero,
 .h2-hero,
 .about-hero,
@@ -302,8 +303,13 @@ p {
 .services-hero,
 .blog-hero,
 .contact-hero,
+.service-detail-hero,
+.pd-hero,
+.booking-hero,
+.registration-hero,
 .hero-standard {
-    min-height: 700px;
+    min-height: calc(100vh - var(--navbar-height));
+    min-height: max(720px, calc(100vh - var(--navbar-height)));
     display: flex;
     align-items: center;
     position: relative;
@@ -319,6 +325,11 @@ p {
 .services-hero > .container,
 .blog-hero > .container,
 .contact-hero > .container,
+.service-detail-hero > .container,
+.pd-hero > .container,
+.booking-hero > .container,
+.registration-hero > .container,
+.blog-detail-hero > .container,
 .hero-standard > .container {
     width: min(100% - 64px, var(--container-width));
     max-width: var(--container-width);
@@ -334,8 +345,12 @@ p {
     .services-hero,
     .blog-hero,
     .contact-hero,
+    .service-detail-hero,
+    .pd-hero,
+    .booking-hero,
+    .registration-hero,
     .hero-standard {
-        min-height: 580px;
+        min-height: max(600px, calc(100vh - var(--navbar-height)));
         padding: 4rem 0;
     }
 }
@@ -349,9 +364,13 @@ p {
     .services-hero,
     .blog-hero,
     .contact-hero,
+    .service-detail-hero,
+    .pd-hero,
+    .booking-hero,
+    .registration-hero,
     .hero-standard {
-        min-height: 480px;
-        padding: 3.5rem 0;
+        min-height: auto;
+        padding: 4rem 0;
     }
 }
 
@@ -364,6 +383,10 @@ p {
     .services-hero,
     .blog-hero,
     .contact-hero,
+    .service-detail-hero,
+    .pd-hero,
+    .booking-hero,
+    .registration-hero,
     .hero-standard {
         min-height: auto;
         padding: 3rem 0;

@@ -5,7 +5,8 @@
 /* --- GENERAL & HERO --- */
 
 .about-hero {
-    min-height: 700px;
+    min-height: calc(100vh - var(--navbar-height));
+    min-height: max(720px, calc(100vh - var(--navbar-height)));
     display: flex;
     align-items: center;
     position: relative;
@@ -745,6 +746,10 @@
 }
 
 @media (max-width: 768px) {
+    .about-hero {
+        min-height: auto;
+        padding: 4rem 0;
+    }
     .about-hero-grid, .story-grid {
         grid-template-columns: 1fr;
     }

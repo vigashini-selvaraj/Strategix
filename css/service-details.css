@@ -22,8 +22,13 @@
 
 /* --- GENERAL & HERO --- */
 .service-detail-hero {
-    padding: 6rem 0 4rem; /* Lifted up */
+    padding: 4.5rem 0;
+    min-height: calc(100vh - var(--navbar-height));
+    min-height: max(720px, calc(100vh - var(--navbar-height)));
+    display: flex;
+    align-items: center;
     background: var(--bg-primary);
+    box-sizing: border-box;
 }
 
 .hero-grid {
@@ -867,6 +872,10 @@
 }
 
 @media (max-width: 768px) {
+    .service-detail-hero {
+        padding: 4rem 0;
+        min-height: auto;
+    }
     .hero-grid, .overview-grid {
         grid-template-columns: 1fr;
     }
